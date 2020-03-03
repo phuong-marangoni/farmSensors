@@ -1,0 +1,33 @@
+body {
+  /*background: beige;*/
+  background: #C9864A;
+}
+
+.chart1 {
+  position: relative;
+  animation: chart;
+  animation-duration: 5s;
+  animation-iteration-count: 2;
+  animation-fill-mode: forwards;
+}
+
+@keyframes chart {
+  0% { left: 0%; top: 0%; }
+  50% { left: 60%; top: 0%; }
+  100% { left: 0%; top: 0%; }
+}
+
+.chart2 {
+  position: relative;
+  animation: chart2;
+  animation-duration: 5s;
+  animation-iteration-count: 2;
+  animation-fill-mode: forwards;
+}
+
+@keyframes chart2 {
+  0% { left: 0%; top: 0%; }
+  50% { left: 40%; top: 30%; }
+  78% { left: 25%; top: 20%; }
+  100% { left: 0%; top: 0%; }
+}
