@@ -1,0 +1,48 @@
+TODO LIST as of 5/12/2020
+---------------------------------------------------------------------
+Front-end (FE)
+---------------------------------------------------------------------
+- Determine parameters necessary to pass into the Humidity and Soil Temp Graph React components (HG - every minute; STG - every hour?)
+
+- Add HTTP request functionality to features to talk to BE
+
+- Add button to launch Edit data sample rates for each graph (new page)
+
+- Make main app responsive
+
+- Tabbing of pages for mobile view (maybe even desktop view?)
+
+- Beautify the app/formatting
+
+---------------------------------------------------------------------
+Back-end (BE)
+---------------------------------------------------------------------
+- Python application to collect data via RF from Arduinos/Sensors
+  - Collected data to be captured and stored in SQL-Lite DB
+  - Ability to accept changes in data sampling or sensor settings via FE App
+
+- Python application to process requests from FE application
+  - Query data requests and return to FE for display
+  - Process any settings or data sampling rate changes to DB
+
+- DB Storage Rough Estimates
+  - If the water outputs at once a minute, 100 Bytes per sensor
+    - 60 min * 24 hrs * 100 Bytes = ~144KB per sensor
+    - 100 sensors * 144KB = ~14.4MB for 100 Sensors/day
+    - 14.4MB * 1,825 days (or 5 years) = ~26.28GB Max (just buy a 1TB HDD?)
+
+---------------------------------------------------------------------
+Test/Mock data API etc.
+---------------------------------------------------------------------
+- Build API to generate fake data for FE
+  - Determine agreed upon parameters for fake data API to ensure seamless integration with real data when time comes
+  - Package up the fake generated data into JSON for unpacking/processing on FE
+
+---------------------------------------------------------------------
+Notes
+---------------------------------------------------------------------
+- A Beagle Bone is available for use to host the front/backend files
+- Front end will communicate with BB using local LAN/WiFi
+- Beagle bone is connected to small RF antenna inside house to Tx/Rx data from the Sensors
+- Sensors are hooked up to an Arduino and Tx/Rx via RF capability outside
+- Design product to be able to accept additional sensors/large quantities in future

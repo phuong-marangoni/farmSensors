@@ -1,0 +1,40 @@
+
+/* ==============================
+      Custom CSS Properties
+   ============================== */
+:root {
+  --bg-dark: #434242;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  background: var(--bg-dark);
+}
+
+h1, h2, h3 {
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+}
+
+.App {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  margin: 3rem;
+  text-align: center;
+}
+
+@media (min-width: 600px) {
+  .container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+}
