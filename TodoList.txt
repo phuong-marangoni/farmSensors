@@ -1,10 +1,12 @@
-TODO LIST as of 5/12/2020
+TODO LIST as of 5/13/2020
 ---------------------------------------------------------------------
 Front-end (FE)
 ---------------------------------------------------------------------
 - Determine parameters necessary to pass into the Humidity and Soil Temp Graph React components (HG - every minute; STG - every hour?)
 
-- Add HTTP request functionality to features to talk to BE
+- Add HTTP request functionality to features to talk to BE (Axios)
+
+- Build a function to generate sample random data to preview in graphs
 
 - Add button to launch Edit data sample rates for each graph (new page)
 
@@ -14,11 +16,13 @@ Front-end (FE)
 
 - Beautify the app/formatting
 
+- Implement graph previews to show live data and/or data at a specific time period
+
 ---------------------------------------------------------------------
 Back-end (BE)
 ---------------------------------------------------------------------
 - Python application to collect data via RF from Arduinos/Sensors
-  - Collected data to be captured and stored in SQL-Lite DB
+  - Collected data to be captured and stored in SQL-Lite time series DB
   - Ability to accept changes in data sampling or sensor settings via FE App
 
 - Python application to process requests from FE application
@@ -34,7 +38,7 @@ Back-end (BE)
 ---------------------------------------------------------------------
 Test/Mock data API etc.
 ---------------------------------------------------------------------
-- Build API to generate fake data for FE
+- Build API to generate fake data for FE (Completed for Humidity Graph; Need Soil Temp data still)
   - Determine agreed upon parameters for fake data API to ensure seamless integration with real data when time comes
   - Package up the fake generated data into JSON for unpacking/processing on FE
 
@@ -46,3 +50,7 @@ Notes
 - Beagle bone is connected to small RF antenna inside house to Tx/Rx data from the Sensors
 - Sensors are hooked up to an Arduino and Tx/Rx via RF capability outside
 - Design product to be able to accept additional sensors/large quantities in future
+
+---------------------------------------------------------------------
+!!!!!!!!!!!  COMPLETED TASKS  !!!!!!!!!!!
+---------------------------------------------------------------------

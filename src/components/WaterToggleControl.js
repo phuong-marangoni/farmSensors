@@ -7,9 +7,9 @@ class WaterToggleControl extends React.Component {
 
     return (
       <div className="waterToggleStyle">
-      <h3>{this.props.control.cname}</h3>
+      <h3>{this.props.controlDashboard.cname}</h3>
       <input
-        onChange={this.props.toggleWaterControl.bind(this, this.props.control.id)} type="checkbox"
+        onChange={this.props.toggleWaterControl.bind(this, this.props.controlDashboard.id)} type="checkbox"
         className="toggleInput"
         />
       </div>

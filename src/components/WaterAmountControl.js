@@ -8,7 +8,7 @@ class WaterAmountControl extends React.Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    this.props.waterThisAmount(this.state.amount, this.props.control.id);
+    this.props.waterThisAmount(this.state.amount, this.props.controlDashboard.id);
     this.setState({amount: ''})
   }
 
@@ -17,7 +17,7 @@ class WaterAmountControl extends React.Component {
   render(){
     return (
       <div className="waterAmountStyle">
-        <h3>{this.props.control.cname}</h3>
+        <h3>{this.props.controlDashboard.cname}</h3>
         <form onSubmit={this.onSubmit}>
           <input className="inputStyle"
           type="text"
@@ -27,7 +27,7 @@ class WaterAmountControl extends React.Component {
           onChange={this.setWaterAmount}/>
           <input className="btnStyle" type="submit" value="Go!"/>
         </form>
-        <p> Currently watering at {this.props.control.waterPercentage}%</p>
+        <p> Currently watering at {this.props.controlDashboard.waterPercentage}%</p>
       </div>
     )
   }

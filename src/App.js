@@ -1,13 +1,13 @@
 import React from 'react';
 import Header from './components/layout/Header';
 import DataDashboard from './components/DataDashboard';
-import Controller from './components/Controller';
+import ControlDashboard from './components/ControlDashboard';
 import {v4 as uuid} from 'uuid';
 import './App.css';
 
 class App extends React.Component {
   state = {
-    controller: [
+    controlDashboard: [
       {
         id: uuid(),
         cname: 'Water Control',
@@ -28,7 +28,7 @@ class App extends React.Component {
 
   toggleWaterControl = (id) => {
     //Toggle state in front end
-    this.setState({controller: this.state.controller.map(control => {
+    this.setState({controlDashboard: this.state.controlDashboard.map(control => {
       if(control.id === id) {
         control.waterToggleState = !control.waterToggleState
 
@@ -43,7 +43,7 @@ class App extends React.Component {
   }
 
   waterThisAmount = (amount,id) => {
-    this.setState({controller: this.state.controller.map(control => {
+    this.setState({controlDashboard: this.state.controlDashboard.map(control => {
       if(control.id === id) {
         if (amount > 100 || amount < 1 || isNaN(amount)) {
           console.log("You must enter an amount between 1 and 100!")
@@ -64,7 +64,7 @@ class App extends React.Component {
       <div className="App">
         <Header />
         <div className="container">
-          <Controller className="tabcontent" controller={this.state.controller} toggleWaterControl={this.toggleWaterControl} waterThisAmount={this.waterThisAmount}/>
+          <ControlDashboard className="tabcontent" controlDashboard={this.state.controlDashboard} toggleWaterControl={this.toggleWaterControl} waterThisAmount={this.waterThisAmount}/>
           <DataDashboard className="tabcontent" />
         </div>
       </div>

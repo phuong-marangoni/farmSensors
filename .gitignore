@@ -21,3 +21,10 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Python Virtual Env Folders
+/Scripts
+/Include
+__pycache__
+/Lib
+pyvenv.cfg
