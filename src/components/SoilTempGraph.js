@@ -3,15 +3,67 @@ import {Bar} from 'react-chartjs-2';
 import '../css/SoilTempGraph.css';
 
 class HumidityGraph extends React.Component {
+  constructor(props){
+    super(props);
+    const maxDataPts = 5;
+    this.state = {
+      labels: new Array(maxDataPts),
+      data: new Array(maxDataPts)
+    }
+  }
+
+  componentDidMount() {
+    this.myTimer = setInterval(() => this.getLiveData(), 60000);
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.myTimer);
+  }
+
+  getLiveData = () => {
+    const axios = require('axios').default;
+    axios.get('http://127.0.0.1:5000/soiltemp')
+      .then((response)=> {
+        const myData = response.data;
+
+        let myTmpLabels = [...this.state.labels];
+        let myTmpData = [...this.state.data];
+
+        myTmpLabels.shift();
+        myTmpData.shift();
+
+        let myTime = new Date(myData.time);
+        let myFormattedTime = myTime.getUTCHours() + ":" + myTime.getUTCMinutes();
+
+        myTmpLabels.push(myFormattedTime);
+        myTmpData.push(myData.soiltemp);
+        this.setState({labels: myTmpLabels, data: myTmpData});
+
+        })
+      .catch((error)=> {
+        console.log(error);
+      });
+  }
+
   render() {
     return (
       <div className="graphStyle">
         <Bar
-          data={graphState}
+          data={{
+            labels: this.state.labels,
+            datasets: [{
+                  label: 'Soil Temp',
+                  backgroundColor: '#0f0',
+                  borderColor: '#0f0',
+                  borderWidth: 2,
+                  data: this.state.data
+            }
+          ]
+          }}
           options={{
             title: {
               display: true,
-              text: 'Soil Temp per hour',
+              text: 'Live Soil Temp (°F) per minute',
               fontSize: 20
             },
             legend: {
@@ -19,27 +71,12 @@ class HumidityGraph extends React.Component {
               position: 'right'
             },
             responsive: true,
-            maintainAspectRatio: true
+            maintainAspectRatio: false
           }}
           />
       </div>
     )
   }
 }
-
-const graphState = {
-  labels: ['10:00 AM', '11:00 AM', '12:00 PM',
-           '1:00 PM', '2:00 PM'],
-  datasets: [
-    {
-      label: 'Soil Temp',
-      backgroundColor: '#0f0',
-      borderColor: '#0f0',
-      borderWidth: 2,
-      data: [65, 59, 80, 81, 56]
-    }
-  ]
-}
-
 
 export default HumidityGraph;

@@ -8,9 +8,10 @@ class HumidityGraph extends React.Component {
 
   constructor(props){
     super(props);
+    const maxDataPts = 30;
     this.state = {
-      labels: ['0','0','0','0','0','0','0','0','0','0'],
-      data: ['0','0','0','0','0','0','0','0','0','0']
+      labels: new Array(maxDataPts),
+      data: new Array(maxDataPts)
     }
   }
 
@@ -29,11 +30,12 @@ class HumidityGraph extends React.Component {
     axios.get('http://127.0.0.1:5000/humidity')
       .then((response) => {
 
-        let myData = response.data;
+        const myData = response.data;
 
         //Update the state by first copying the state into temp arrays
         let tmpLabelsArray = [...this.state.labels];
         let tmpDataArray = [...this.state.data];
+
         //remove first item off the array
         tmpLabelsArray.shift();
         tmpDataArray.shift();
@@ -46,6 +48,7 @@ class HumidityGraph extends React.Component {
         tmpLabelsArray.push(convertedTime);
         tmpDataArray.push(myData.humidity);
         this.setState({labels: tmpLabelsArray, data: tmpDataArray});
+
       })
       .catch(function(error) {
         console.log(error);
@@ -73,7 +76,7 @@ class HumidityGraph extends React.Component {
           options={{
             title: {
               display: true,
-              text: 'Live Humidity per 10 seconds',
+              text: 'Live Humidity per second',
               fontSize: 20
             },
             legend: {
@@ -81,7 +84,7 @@ class HumidityGraph extends React.Component {
               position: 'right'
             },
             responsive: true,
-            maintainAspectRatio: true
+            maintainAspectRatio: false
           }}
           />
       </div>

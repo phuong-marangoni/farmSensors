@@ -23,8 +23,8 @@ yarn-debug.log*
 yarn-error.log*
 
 # Python Virtual Env Folders
-/Scripts
-/Include
+src/flaskBE/venv/Scripts
+/src/flaskBE/venv/Include
 __pycache__
-/Lib
+/src/flaskBE/venv/Lib
 pyvenv.cfg

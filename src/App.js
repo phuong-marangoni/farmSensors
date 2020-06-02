@@ -43,6 +43,9 @@ class App extends React.Component {
   }
 
   waterThisAmount = (amount,id) => {
+
+    // Need to add a constraint to only allow watering at a certain amount if the water control is turned ON.
+
     this.setState({controlDashboard: this.state.controlDashboard.map(control => {
       if(control.id === id) {
         if (amount > 100 || amount < 1 || isNaN(amount)) {

@@ -11,6 +11,7 @@ function Header() {
 
 const headerStyle = {
   color: '#0f0',
-
+  margin: '0.5rem'
 }
+
 export default Header;

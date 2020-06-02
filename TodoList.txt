@@ -1,22 +1,18 @@
-TODO LIST as of 5/13/2020
+TODO LIST as of 6/2/2020
 ---------------------------------------------------------------------
 Front-end (FE)
 ---------------------------------------------------------------------
-- Determine parameters necessary to pass into the Humidity and Soil Temp Graph React components (HG - every minute; STG - every hour?)
+- Determine parameters necessary to pass into the Humidity and Soil Temp Graph React components (HG - every second; STG - every minute (for now))
 
-- Add HTTP request functionality to features to talk to BE (Axios)
-
-- Build a function to generate sample random data to preview in graphs
+- Add correct URL's to HTTPRequests once backend server properly set up
 
 - Add button to launch Edit data sample rates for each graph (new page)
-
-- Make main app responsive
 
 - Tabbing of pages for mobile view (maybe even desktop view?)
 
 - Beautify the app/formatting
 
-- Implement graph previews to show live data and/or data at a specific time period
+- Implement graph previews to show data at a specific time period
 
 ---------------------------------------------------------------------
 Back-end (BE)
@@ -25,7 +21,7 @@ Back-end (BE)
   - Collected data to be captured and stored in SQL-Lite time series DB
   - Ability to accept changes in data sampling or sensor settings via FE App
 
-- Python application to process requests from FE application
+- Python Flask application to process requests from FE application
   - Query data requests and return to FE for display
   - Process any settings or data sampling rate changes to DB
 
@@ -38,9 +34,7 @@ Back-end (BE)
 ---------------------------------------------------------------------
 Test/Mock data API etc.
 ---------------------------------------------------------------------
-- Build API to generate fake data for FE (Completed for Humidity Graph; Need Soil Temp data still)
-  - Determine agreed upon parameters for fake data API to ensure seamless integration with real data when time comes
-  - Package up the fake generated data into JSON for unpacking/processing on FE
+-- Current tasks completed
 
 ---------------------------------------------------------------------
 Notes
@@ -54,3 +48,10 @@ Notes
 ---------------------------------------------------------------------
 !!!!!!!!!!!  COMPLETED TASKS  !!!!!!!!!!!
 ---------------------------------------------------------------------
+- Build API to generate fake data for FE
+- Determine agreed upon parameters for fake data API to ensure seamless integration with real data when time comes
+- Package up the fake generated data into JSON for unpacking/processing on FE
+- Add HTTP request functionality to features to talk to BE (Axios)
+- Build a function to generate sample random data to preview in graphs
+- Make main app responsive
+- Implement graph previews to show live data
