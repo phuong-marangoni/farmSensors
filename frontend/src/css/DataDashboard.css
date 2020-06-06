@@ -1,0 +1,8 @@
+.dashboardStyle {
+  margin: 2rem;
+}
+
+@media (min-width: 600px){
+  .dashboardStyle {
+  }
+}

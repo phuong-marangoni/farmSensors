@@ -1,0 +1,46 @@
+/* Custom CSS Properties */
+:root {
+  --fw-reg: 400;
+  --fw-bold: 900;
+
+  --c-on: #0f0;
+  --c-off: #9E0606;
+}
+
+.toggleInput {
+  position: relative;
+  height: 1.5rem;
+  width: 3.5rem;
+  appearance: none;
+  background: var(--c-off);
+  outline: none;
+  border-radius: 20px;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+  transition: 0.8s;
+}
+
+.toggleInput:checked {
+  background: var(--c-on);
+}
+
+.toggleInput::before {
+  content: 'OFF';
+  padding: 0.45rem 0.1rem;
+  color: var(--c-off);
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  border-radius: 20px;
+  top: -5%;
+  left: 0;
+  background: white;
+  transform: scale(1.2);
+  transition: 0.8s;
+}
+
+.toggleInput:checked::before {
+  content: 'ON';
+  padding: 0.45rem 0.3rem;
+  color: var(--c-on);
+  left: 35px;
+}
