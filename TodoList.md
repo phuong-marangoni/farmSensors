@@ -1,4 +1,4 @@
-# TODO LIST as of 6/2/2020
+# TODO LIST as of 7/3/2020
 ---------------------------------------------------------------------
 ### Front-end (FE)
 ---------------------------------------------------------------------
@@ -21,7 +21,7 @@
 ---------------------------------------------------------------------
 - [ ] Python application to collect data via RF from Arduinos/Sensors
   - [ ] Need list of all the HW to determine appropriate interface implementation
-  - [ ] Collected data to be captured and stored in SQL-Lite time series DB
+  - [ ] Collected data to be captured and stored in PostgreSQL DB via Python DB-API
   - [ ] Ability to accept changes in data sampling or sensor settings via FE App
 - [ ] Python Flask application to process requests from FE application
   - [ ] Query data requests and return to FE for display
@@ -41,12 +41,13 @@
 - [x] Build API to generate fake data for FE
 - [x] Determine agreed upon parameters for fake data API to ensure seamless integration with real data when time comes
 - [x] Package up the fake generated data into JSON for unpacking/processing on FE
+- [ ] Build test DB using SQLite (built-in w/ Python)
 
 ---------------------------------------------------------------------
 ### Notes
 ---------------------------------------------------------------------
 - A Beagle Bone is available for use to host the front/backend files
 - Front end will communicate with BB using local LAN/WiFi
-- Beagle bone is connected to small RF antenna inside house to Tx/Rx data from the Sensors
+- Beagle bone is connected to small RF antenna inside house to Tx/Rx data from the sensors
 - Sensors are hooked up to an Arduino and Tx/Rx via RF capability outside
 - Design product to be able to accept additional sensors/large quantities in future
