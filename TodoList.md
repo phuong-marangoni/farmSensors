@@ -1,4 +1,4 @@
-# TODO LIST as of 7/3/2020
+# TODO LIST as of 7/11/2020
 ---------------------------------------------------------------------
 ### Front-end (FE)
 ---------------------------------------------------------------------
@@ -21,7 +21,8 @@
 ---------------------------------------------------------------------
 - [ ] Python application to collect data via RF from Arduinos/Sensors
   - [ ] Need list of all the HW to determine appropriate interface implementation
-  - [ ] Collected data to be captured and stored in PostgreSQL DB via Python DB-API
+  - [ ] Collect data to be captured and stored in PostgreSQL or MySQL DB via Python DB-API
+    - [ ] Make it bg process for data collection
   - [ ] Ability to accept changes in data sampling or sensor settings via FE App
 - [ ] Python Flask application to process requests from FE application
   - [ ] Query data requests and return to FE for display
@@ -42,6 +43,9 @@
 - [x] Determine agreed upon parameters for fake data API to ensure seamless integration with real data when time comes
 - [x] Package up the fake generated data into JSON for unpacking/processing on FE
 - [ ] Build test DB using SQLite (built-in w/ Python)
+  - [ ] Create separate Python script to populate test DB with fake data for past data retrieval requests
+  - [ ] Create module for data collection DB operations to be integrated with mock API
+  - [ ] Design for potential table parameter changes
 
 ---------------------------------------------------------------------
 ### Notes
