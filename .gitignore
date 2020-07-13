@@ -22,6 +22,7 @@ frontend/npm-debug.log*
 frontend/yarn-debug.log*
 frontend/yarn-error.log*
 
-# Python Virtual Env Folders
+# Python Virtual Env Folders and test databases
 backend/flaskBE/venv/
 backend/flaskBE/__pycache__/
+*.db

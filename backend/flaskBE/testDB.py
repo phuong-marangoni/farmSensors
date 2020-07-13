@@ -16,7 +16,7 @@ def createTable(con, cur, data):
 
     tbl = getTableType(data)
 
-    cur.execute(" CREATE TABLE " + tbl + " (id INTEGER PRIMARY KEY AUTOINCREMENT, time TEXT NOT NULL, " + tbl.strip('_table') +" TEXT NOT NULL); ")
+    cur.execute(" CREATE TABLE " + tbl + " (id INTEGER PRIMARY KEY AUTOINCREMENT, time DATETIME NOT NULL, " + tbl.strip('_table') +" REAL NOT NULL); ")
 
     # Extracting and formatting data for insert string
     dataArr = data.keys()

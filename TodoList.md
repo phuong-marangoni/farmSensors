@@ -1,4 +1,4 @@
-# TODO LIST as of 7/11/2020
+# TODO LIST as of 7/12/2020
 ---------------------------------------------------------------------
 ### Front-end (FE)
 ---------------------------------------------------------------------
@@ -30,11 +30,7 @@
 - [ ] Apache setup and configuration
     - [ ] Routing for Python applications
     - [ ] Routing for static FE files
-- DB Storage Rough Estimates
-  - If the water outputs at once a minute, 100 Bytes per sensor
-    - 60 min * 24 hrs * 100 Bytes = ~144KB per sensor
-    - 100 sensors * 144KB = ~14.4MB for 100 Sensors/day
-    - 14.4MB * 1,825 days (or 5 years) = ~26.28GB Max (just buy a 1TB HDD?)
+
 
 ---------------------------------------------------------------------
 ### Test/Mock data API etc.
@@ -42,9 +38,9 @@
 - [x] Build API to generate fake data for FE
 - [x] Determine agreed upon parameters for fake data API to ensure seamless integration with real data when time comes
 - [x] Package up the fake generated data into JSON for unpacking/processing on FE
-- [ ] Build test DB using SQLite (built-in w/ Python)
-  - [ ] Create separate Python script to populate test DB with fake data for past data retrieval requests
-  - [ ] Create module for data collection DB operations to be integrated with mock API
+- [x] Build test DB using SQLite (built-in w/ Python)
+  - [x] Create separate Python script to populate test DB with fake data for past data retrieval requests
+  - [x] Create module for data collection DB operations to be integrated with mock API
   - [ ] Design for potential table parameter changes
 
 ---------------------------------------------------------------------
@@ -55,3 +51,13 @@
 - Beagle bone is connected to small RF antenna inside house to Tx/Rx data from the sensors
 - Sensors are hooked up to an Arduino and Tx/Rx via RF capability outside
 - Design product to be able to accept additional sensors/large quantities in future
+
+- DB Storage Rough Estimates
+  - If the water outputs at once a minute, 100 Bytes per sensor
+    - 60 min * 24 hrs * 100 Bytes = ~144KB per sensor
+    - 100 sensors * 144KB = ~14.4MB for 100 Sensors/day
+    - 14.4MB * 1,825 days (or 5 years) = ~26.28GB Max (just buy a 1TB HDD?)
+
+  - Test database produced ~7M rows of data at a sampling rate of 1 pt per second in one calendar year
+    - With SQLite INTEGER supporting up to 9,223,372,036,854,775,807 (nine quintillion two hundred twenty three quadrillion three hundred seventy two trillion thirty six billion eight hundred fifty four million seven hundred seventy five thousand eight hundred and seven) values and 7M rows, it can support ~1.31 trillion rows for one year.
+    - If we collect for 100 years, the app can theoretically only support up to ~13 billion sensors maximum  
